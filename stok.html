@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Stok - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="dashboard.html" class="logo">Toko Buku Online</a>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="stok.html" class="active">Katalog & Stok</a></li>
+                <li><a href="checkout.html">Pemesanan</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+                <li><a href="index.html" style="color: red;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h2>Informasi Stok & Katalog Buku</h2>
+            <button class="btn btn-primary" onclick="openModal('modalTambahStok')">+ Tambah Stok Baru</button>
+        </div>
+
+        <div class="card">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sampul</th>
+                            <th>Kode Barang</th>
+                            <th>Nama Barang</th>
+                            <th>Jenis Barang</th>
+                            <th>Edisi</th>
+                            <th>Harga</th>
+                            <th>Stok</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stokTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Tambah Stok Baru -->
+    <div id="modalTambahStok" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Baris Stok Buku Baru</h3>
+                <button class="close-btn" onclick="closeModal('modalTambahStok')">&times;</button>
+            </div>
+            <form id="formTambahStok" onsubmit="handleTambahStok(event)">
+                <div class="form-group">
+                    <label for="inputKode">Kode Barang</label>
+                    <input type="text" id="inputKode" class="form-control" placeholder="Contoh: MKDU4111" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputNama">Nama Barang</label>
+                    <input type="text" id="inputNama" class="form-control" placeholder="Judul Buku" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputJenis">Jenis Barang</label>
+                    <input type="text" id="inputJenis" class="form-control" placeholder="Buku Ajar" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputEdisi">Edisi</label>
+                    <input type="text" id="inputEdisi" class="form-control" placeholder="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputHarga">Harga</label>
+                    <input type="text" id="inputHarga" class="form-control" placeholder="Rp 150.000" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputStok">Jumlah Stok</label>
+                    <input type="number" id="inputStok" class="form-control" min="1" required>
+                </div>
+                <button type="submit" class="btn btn-success" style="width: 100%;">Simpan Stok Baru</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Toko Buku Online - Tugas UTS Pemrograman Web 1</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { renderStokTable(); });
+    </script>
+</body>
+</html>

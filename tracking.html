@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Pengiriman - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="dashboard.html" class="logo">Toko Buku Online</a>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="stok.html">Katalog & Stok</a></li>
+                <li><a href="checkout.html">Pemesanan</a></li>
+                <li><a href="tracking.html" class="active">Tracking</a></li>
+                <li><a href="index.html" style="color: red;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Tracking Status Pengiriman</h2>
+
+        <div class="card">
+            <form onsubmit="handleCariTracking(event)" style="display: flex; gap: 1rem;">
+                <input type="text" id="inputNoDO" class="form-control" placeholder="Masukkan Nomor Delivery Order (Contoh: 20230012)" required>
+                <button type="submit" class="btn btn-primary">Cari</button>
+            </form>
+        </div>
+
+        <div id="resultTrackingContainer" class="card" style="display: none;">
+            <h3 id="trackingDO">Nomor Order: -</h3>
+            <p id="trackingNama">Nama Pemesan: -</p>
+
+            <div class="tracking-stepper">
+                <div class="step-item" id="step1">
+                    <div class="step-circle">1</div>
+                    <div class="step-title">Diproses</div>
+                </div>
+                <div class="step-item" id="step2">
+                    <div class="step-circle">2</div>
+                    <div class="step-title">Dikemas</div>
+                </div>
+                <div class="step-item" id="step3">
+                    <div class="step-circle">3</div>
+                    <div class="step-title">Dalam Perjalanan</div>
+                </div>
+                <div class="step-item" id="step4">
+                    <div class="step-circle">4</div>
+                    <div class="step-title">Selesai / Dikirim</div>
+                </div>
+            </div>
+
+            <div class="table-responsive" style="margin-top: 1.5rem;">
+                <table>
+                    <tr>
+                        <th>Ekspedisi</th>
+                        <td id="detailEkspedisi">-</td>
+                    </tr>
+                    <tr>
+                        <th>Tanggal Kirim</th>
+                        <td id="detailTanggal">-</td>
+                    </tr>
+                    <tr>
+                        <th>Paket / Kode</th>
+                        <td id="detailPaket">-</td>
+                    </tr>
+                    <tr>
+                        <th>Total Pembayaran</th>
+                        <td id="detailTotal">-</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td id="detailStatus">-</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h4 style="margin-top: 1.5rem; margin-bottom: 0.5rem;">Riwayat Perjalanan Paket</h4>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Waktu</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="perjalananList"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Toko Buku Online - Tugas UTS Pemrograman Web 1</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

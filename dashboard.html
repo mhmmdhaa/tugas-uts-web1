@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="dashboard.html" class="logo">Toko Buku Online</a>
+            <ul class="nav-links">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="stok.html">Katalog & Stok</a></li>
+                <li><a href="checkout.html">Pemesanan</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+                <li><a href="index.html" style="color: red;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="greeting-banner">
+            <h1 id="greetingText">Selamat Pagi!</h1>
+            <p id="timeDetail">Waktu lokal Anda...</p>
+        </div>
+
+        <h2 style="margin-bottom: 1rem;">Menu Utama</h2>
+        <div class="grid-dashboard">
+            <a href="stok.html" class="menu-card">
+                <div class="menu-icon">[Katalog]</div>
+                <h3>Informasi Stok / Katalog</h3>
+                <p>Lihat katalog buku dan kelola data stok secara langsung.</p>
+            </a>
+
+            <a href="tracking.html" class="menu-card">
+                <div class="menu-icon">[Tracking]</div>
+                <h3>Tracking Pengiriman</h3>
+                <p>Cek status dan progress pengiriman nomor order Anda.</p>
+            </a>
+
+            <a href="checkout.html" class="menu-card">
+                <div class="menu-icon">[Pesanan]</div>
+                <h3>Laporan Pemesanan</h3>
+                <p>Kelola item pemesanan dan checkout pembayaran.</p>
+            </a>
+
+            <a href="#" class="menu-card" onclick="openModal('modalHistory')">
+                <div class="menu-icon">[Riwayat]</div>
+                <h3>History Transaksi</h3>
+                <p>Lihat riwayat transaksi belanja yang telah selesai.</p>
+            </a>
+        </div>
+    </main>
+
+    <!-- Modal History Transaksi -->
+    <div id="modalHistory" class="modal-backdrop">
+        <div class="modal-content" style="max-width: 650px;">
+            <div class="modal-header">
+                <h3>Riwayat Transaksi Saya</h3>
+                <button class="close-btn" onclick="closeModal('modalHistory')">&times;</button>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No Order</th>
+                            <th>Tanggal</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Toko Buku Online - Tugas UTS Pemrograman Web 1</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDashboardGreeting();
+            renderHistoryTable();
+        });
+    </script>
+</body>
+</html>

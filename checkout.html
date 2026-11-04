@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan - Toko Buku Online</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="dashboard.html" class="logo">Toko Buku Online</a>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="stok.html">Katalog & Stok</a></li>
+                <li><a href="checkout.html" class="active">Pemesanan</a></li>
+                <li><a href="tracking.html">Tracking</a></li>
+                <li><a href="index.html" style="color: red;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Form Pemesanan Buku</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div class="card">
+                <h3>Item Pemesanan</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Buku</th>
+                                <th>Harga</th>
+                                <th>Qty</th>
+                                <th>Subtotal</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cartTableBody"></tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 1rem; text-align: right;">
+                    <p style="font-size: 1.2rem; font-weight: bold;">Total: <span id="totalCartPrice" style="color: var(--primary-color);">Rp 0</span></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Informasi Pemesan & Pembayaran</h3>
+                <form id="formCheckout" onsubmit="handleProcessCheckout(event)">
+                    <div class="form-group">
+                        <label for="pemesanNama">Nama Pemesan</label>
+                        <input type="text" id="pemesanNama" class="form-control" placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pemesanEmail">Email</label>
+                        <input type="email" id="pemesanEmail" class="form-control" placeholder="email@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pemesanAlamat">Alamat Lengkap</label>
+                        <textarea id="pemesanAlamat" class="form-control" rows="3" placeholder="Alamat lengkap..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="metodeBayar">Metode Pembayaran</label>
+                        <select id="metodeBayar" class="form-control" required>
+                            <option value="Transfer Bank BCA">Transfer Bank BCA</option>
+                            <option value="E-Wallet (GoPay/OVO)">E-Wallet (GoPay/OVO/Dana)</option>
+                            <option value="COD (Bayar di Tempat)">COD (Bayar di Tempat)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Proses Pesanan Sekarang</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Toko Buku Online - Tugas UTS Pemrograman Web 1</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { initCheckoutPage(); });
+    </script>
+</body>
+</html>
