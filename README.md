@@ -12,6 +12,8 @@
 * **Universitas:** Universitas Pelita Bangsa
 * **Tahun:** 2026
 
+* Link Youtube : https://youtu.be/Yngj_BUBzYM*
+
 ---
 
 ## Deskripsi Project
